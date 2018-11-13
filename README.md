@@ -1,4 +1,4 @@
-# game-night-server
+# game-night
 
 > The socket/api server for Game Night.
 
@@ -14,7 +14,7 @@ Getting up and running is as easy as 1, 2, 3.
 2. Install your dependencies
 
     ```
-    cd path/to/game-night-server; npm install
+    cd path/to/game-night; npm install
     ```
 
 3. Start your app
