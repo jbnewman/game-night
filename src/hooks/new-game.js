@@ -26,6 +26,9 @@ module.exports = function (options = {}) {
     let data = context.data;
 
     data.id = await generate_game_id(context);
+    if(data.name === undefined){
+      throw new errors.GeneralError('Game must have a name.');
+    }
     data.name = data.name.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-");
     data.createdBy = context.params.user._id;
     data.createdOn = new Date();

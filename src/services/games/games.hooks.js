@@ -1,14 +1,18 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
+const newGame = require('../../hooks/new-game');
+
+const deleteGame = require('../../hooks/delete-game');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [],
+    create: [newGame()],
     update: [],
     patch: [],
-    remove: []
+    remove: [deleteGame()]
   },
 
   after: {
