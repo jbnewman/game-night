@@ -1,5 +1,4 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const { disallow } = require('feathers-hooks-common');
 
 const {
   hashPassword, protect
@@ -8,10 +7,10 @@ const {
 module.exports = {
   before: {
     all: [],
-    find: [ disallow() ],
-    get: [ disallow() ],
+    find: [],
+    get: [],
     create: [ (context) => {context.data.createdOn = new Date()}, hashPassword() ],
-    update: [ disallow() ],
+    update: [],
     patch: [ (context) => {context.data.patchedOn = new Date()}, hashPassword(),  authenticate('jwt') ],
     remove: [ authenticate('jwt') ]
   },
